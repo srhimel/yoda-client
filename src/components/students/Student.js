@@ -16,7 +16,7 @@ const Student = ({ student, index, students, setStudents, setShowNotification, s
         axios.put(`https://stormy-waters-58519.herokuapp.com/students/${student._id}`, data)
             .then(res => {
                 console.log(res.data);
-                setMessage('Food Updated Successfully');
+                setMessage('Student Data Updated Successfully');
                 setType('success');
                 setShowNotification(true);
                 setShowForm(false);
@@ -25,7 +25,7 @@ const Student = ({ student, index, students, setStudents, setShowNotification, s
             })
             .catch(err => {
                 console.log(err);
-                setMessage('Error Updating Food');
+                setMessage('Error Updating Student Data');
                 setType('danger');
                 setShowNotification(true);
 
@@ -38,13 +38,13 @@ const Student = ({ student, index, students, setStudents, setShowNotification, s
                 console.log(res.data);
                 setStudents(students.filter(s => s._id !== id));
                 setType('danger');
-                setMessage('Food Deleted Successfully');
+                setMessage('Student Data Deleted Successfully');
                 setShowNotification(true);
                 setIsLoading(false);
             })
             .catch(err => {
                 console.log(err);
-                setMessage('Error Deleting Food');
+                setMessage('Error Deleting Student Data');
                 setType('warning');
                 setShowNotification(true);
                 setIsLoading(false);
