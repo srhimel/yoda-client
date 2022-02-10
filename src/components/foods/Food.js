@@ -13,7 +13,7 @@ const Food = ({ food, index, foods, setFoods, setShowNotification, setMessage, s
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmitForm = data => {
 
-        axios.put(`http://localhost:5000/foods/${food._id}`, data)
+        axios.put(`https://stormy-waters-58519.herokuapp.com/foods/${food._id}`, data)
             .then(res => {
                 console.log(res.data);
                 setMessage('Food Updated Successfully');
@@ -33,7 +33,7 @@ const Food = ({ food, index, foods, setFoods, setShowNotification, setMessage, s
     };
     const handleDelete = (id) => {
         setIsLoading(true);
-        axios.delete(`http://localhost:5000/foods/${id}`)
+        axios.delete(`https://stormy-waters-58519.herokuapp.com/foods/${id}`)
             .then(res => {
                 console.log(res.data);
                 setFoods(foods.filter(f => f._id !== id));

@@ -18,14 +18,14 @@ const Distribution = () => {
     const [inserted, setInserted] = useState('');
 
     useEffect(() => {
-        axios.get('http://localhost:5000/all-students')
+        axios.get('https://stormy-waters-58519.herokuapp.com/all-students')
             .then(res => {
                 setStudents(res.data);
             })
             .catch(err => {
                 console.log(err);
             })
-        axios.get('http://localhost:5000/all-foods')
+        axios.get('https://stormy-waters-58519.herokuapp.com/all-foods')
             .then(res => {
                 setFoods(res.data);
             })
@@ -35,7 +35,7 @@ const Distribution = () => {
     }, []);
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/distribution`)
+        axios.get(`https://stormy-waters-58519.herokuapp.com/distribution`)
             .then(res => {
                 setDistribution(res.data);
             }
@@ -51,7 +51,7 @@ const Distribution = () => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmitForm = data => {
         const newData = { ...data, roll: roll };
-        axios.post('http://localhost:5000/distribution', newData)
+        axios.post('https://stormy-waters-58519.herokuapp.com/distribution', newData)
             .then(res => {
                 console.log(res.data);
                 if (res.data.insertedId) {
@@ -152,7 +152,7 @@ const Distribution = () => {
                         <td>{d.food}</td>
                         <td>{d.status}</td>
                         <td><Button variant="danger" onClick={() => {
-                            axios.delete(`http://localhost:5000/distribution/${d._id}`)
+                            axios.delete(`https://stormy-waters-58519.herokuapp.com/distribution/${d._id}`)
                                 .then(res => {
                                     setDistribution(distribution.filter(des => des._id !== d._id));
                                 })

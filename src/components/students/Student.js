@@ -13,7 +13,7 @@ const Student = ({ student, index, students, setStudents, setShowNotification, s
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmitForm = data => {
 
-        axios.put(`http://localhost:5000/students/${student._id}`, data)
+        axios.put(`https://stormy-waters-58519.herokuapp.com/students/${student._id}`, data)
             .then(res => {
                 console.log(res.data);
                 setMessage('Food Updated Successfully');
@@ -33,7 +33,7 @@ const Student = ({ student, index, students, setStudents, setShowNotification, s
     };
     const handleDelete = (id) => {
         setIsLoading(true);
-        axios.delete(`http://localhost:5000/students/${id}`)
+        axios.delete(`https://stormy-waters-58519.herokuapp.com/students/${id}`)
             .then(res => {
                 console.log(res.data);
                 setStudents(students.filter(s => s._id !== id));

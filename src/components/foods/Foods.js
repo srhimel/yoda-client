@@ -25,7 +25,7 @@ const Foods = () => {
     const handleFoodsPerPage = (e) => { console.log(e.target.value); setFoodsPerPage(e.target.value); }
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/foods?page=${currentPage}&limit=${foodsPerPage}`)
+        axios.get(`https://stormy-waters-58519.herokuapp.com/foods?page=${currentPage}&limit=${foodsPerPage}`)
             .then(res => {
                 setFoods(res.data.foods);
                 const count = res.data.count;
@@ -39,7 +39,7 @@ const Foods = () => {
     }, [inserted, foodsPerPage, currentPage]);
     const onSubmitForm = data => {
         setIsLoading(true);
-        axios.post('http://localhost:5000/foods', data)
+        axios.post('https://stormy-waters-58519.herokuapp.com/foods', data)
             .then(res => {
                 setInserted(res.data.insertedId);
                 setType('success');

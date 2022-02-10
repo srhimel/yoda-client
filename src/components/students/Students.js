@@ -24,7 +24,7 @@ const Students = () => {
     const handleFoodsPerPage = (e) => { console.log(e.target.value); setStudentsPerPage(e.target.value); }
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/students?page=${currentPage}&limit=${studentsPerPage}`)
+        axios.get(`https://stormy-waters-58519.herokuapp.com/students?page=${currentPage}&limit=${studentsPerPage}`)
             .then(res => {
                 setStudents(res.data.students);
                 const count = res.data.count;
@@ -38,7 +38,7 @@ const Students = () => {
     }, [inserted, studentsPerPage, currentPage]);
     const onSubmitForm = data => {
         setIsLoading(true);
-        axios.post('http://localhost:5000/students', data)
+        axios.post('https://stormy-waters-58519.herokuapp.com/students', data)
             .then(res => {
                 setInserted(res.data.insertedId);
                 setType('success');
@@ -60,7 +60,7 @@ const Students = () => {
     const [bulkSelect, setBulkSelect] = useState([]);
     const handleStatusUpdate = (e) => {
         e.target.innerText = 'Updating...';
-        axios.put('http://localhost:5000/students-bulk', bulkSelect)
+        axios.put('https://stormy-waters-58519.herokuapp.com/students-bulk', bulkSelect)
             .then(res => {
                 window.location.reload();
 
@@ -71,7 +71,7 @@ const Students = () => {
     }
     const handleStatusInactive = (e) => {
         e.target.innerText = 'Updating...';
-        axios.put('http://localhost:5000/students-bulk-inactive', bulkSelect)
+        axios.put('https://stormy-waters-58519.herokuapp.com/students-bulk-inactive', bulkSelect)
             .then(res => {
                 window.location.reload();
             })
